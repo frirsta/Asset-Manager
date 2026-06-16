@@ -1,0 +1,153 @@
+Build a complete, production-ready, modern one-page website for my business “DevDonna”.
+
+This must be a HIGH-CONVERTING premium landing page for client acquisition.
+
+────────────────────────────
+🧠 ABOUT DEVDONNA
+────────────────────────────
+
+DevDonna is a Swedish solo IT consulting studio run by a full-stack developer.
+
+It is NOT an agency.
+
+It is a boutique one-person studio that builds modern digital products.
+
+Services:
+- Frontend development (React, Next.js, modern UI/UX)
+- Backend development (Django, Django REST Framework)
+- Full-stack web applications
+- API systems and integrations
+- MVP development for startups
+- Website redesigns for businesses
+
+Target clients:
+- Startups needing MVPs
+- Small/medium businesses needing modern websites
+- Companies needing freelance full-stack developer support
+
+Positioning:
+Premium solo developer studio. High quality, direct communication, no middle layers.
+
+────────────────────────────
+🎯 GOAL OF THE WEBSITE
+────────────────────────────
+
+The website must be designed to:
+- Generate client inquiries (primary goal)
+- Build trust within 5 seconds
+- Clearly communicate value instantly
+- Look premium and modern (boutique studio feel)
+- Convert visitors into leads
+
+────────────────────────────
+🎨 DESIGN DIRECTION (VERY IMPORTANT)
+────────────────────────────
+
+Style:
+- Modern SaaS landing page (Stripe / Linear inspired)
+- Scandinavian minimalism
+- Elegant, slightly feminine aesthetic (soft, refined, not childish)
+- Premium boutique studio feel
+
+Colors:
+- Warm off-white / soft beige background
+- Subtle rose / lavender accent
+- Dark gray text (not pure black)
+- Soft gradients and blurred shapes
+
+UI:
+- Lots of whitespace
+- Clean grid layout
+- Rounded corners (modern but professional)
+- Subtle shadows
+- Smooth hover animations
+- High-end typography (Google Font like Inter or Poppins)
+
+────────────────────────────
+🧱 STRUCTURE (MUST FOLLOW)
+────────────────────────────
+
+1. HERO SECTION (MOST IMPORTANT)
+- Strong headline focused on outcome (not tech)
+- Subheadline explaining DevDonna clearly
+- Primary CTA: “Let’s work together”
+- Secondary CTA: “View services”
+- Must immediately communicate value in under 5 seconds
+
+2. TRUST LINE
+- Simple positioning:
+  “Independent full-stack developer based in Sweden”
+
+3. PROBLEM → SOLUTION SECTION
+- Show pain:
+  “Outdated websites lose customers and trust”
+- Show transformation:
+  “We build fast, modern systems that convert visitors into clients”
+
+4. HOW IT WORKS (3 STEPS)
+- Simple:
+  1. You share your idea
+  2. I design and build it
+  3. You get a production-ready system
+
+5. SERVICES SECTION
+Each service must be outcome-focused:
+- Web Development (conversion-focused websites)
+- Full-Stack Development (custom web apps)
+- API & Backend Systems (scalable infrastructure)
+- UI/UX Development (clean modern interfaces)
+
+6. TECH STACK
+Include:
+React, Next.js, Django, Django REST Framework, PostgreSQL, JavaScript
+
+7. PROJECTS SECTION (IMPORTANT FOR TRUST)
+Create 2–3 realistic case studies:
+- SaaS dashboard
+- Business website redesign
+- Backend API system
+Each must include outcome/value, not just description
+
+8. SOCIAL PROOF SECTION
+Include 1–2 realistic testimonials (clearly labeled as sample if needed)
+
+9. CONTACT SECTION (CONVERSION FOCUSED)
+- Simple contact form OR email button
+- Strong CTA text:
+  “Tell me about your project”
+
+10. FOOTER
+Minimal, premium, clean:
+“DevDonna — Modern full-stack development from Sweden”
+
+────────────────────────────
+💰 COPY RULES (VERY IMPORTANT)
+────────────────────────────
+
+- No corporate or generic marketing fluff
+- Simple, confident English
+- Focus on business outcomes (leads, conversions, speed, trust)
+- Speak like a premium solo developer, not an agency
+- Every section should gently push toward contact
+
+────────────────────────────
+⚙️ TECH REQUIREMENTS
+────────────────────────────
+
+- Use HTML, CSS, and optional minimal JavaScript
+- Fully responsive (mobile-first)
+- Must work instantly when deployed
+- No frameworks required
+- Clean, production-ready code
+- Should be ready for GitHub Pages or simple hosting
+
+────────────────────────────
+🔥 FINAL GOAL
+────────────────────────────
+
+This website should feel like:
+- A premium Scandinavian tech studio
+- A high-trust personal brand
+- A conversion-optimized landing page that gets clients
+
+Build it now.

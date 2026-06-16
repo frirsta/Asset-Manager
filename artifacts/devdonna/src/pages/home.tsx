@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { motion } from "framer-motion";
 import { SiReact, SiNextdotjs, SiDjango, SiPostgresql, SiJavascript } from "react-icons/si";
-import { Code2, Server, Globe, Terminal, Rocket, PenTool } from "lucide-react";
+import { Code2, Server, Globe, Terminal, Rocket, PenTool, CheckCircle2, XCircle } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -107,16 +107,16 @@ export default function Home() {
                 className="rounded-full text-base px-8 h-14"
                 data-testid="hero-cta-primary"
               >
-                Start a Project
+                Let's work together
               </Button>
               <Button 
                 size="lg" 
                 variant="outline" 
-                onClick={() => scrollTo("projects")}
+                onClick={() => scrollTo("services")}
                 className="rounded-full text-base px-8 h-14"
                 data-testid="hero-cta-secondary"
               >
-                See My Work
+                View services
               </Button>
             </motion.div>
           </motion.div>
@@ -141,6 +141,94 @@ export default function Home() {
           </div>
         </div>
       </div>
+
+      {/* Problem -> Solution */}
+      <section className="py-24 md:py-32">
+        <div className="container mx-auto px-4 md:px-8">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={staggerContainer}
+            className="grid md:grid-cols-2 gap-8 lg:gap-16"
+          >
+            <motion.div variants={fadeInUp} className="bg-secondary/10 p-8 md:p-12 rounded-3xl">
+              <h2 className="font-serif text-3xl md:text-4xl mb-8">Your website is losing you business.</h2>
+              <ul className="space-y-6">
+                <li className="flex items-start gap-4">
+                  <XCircle className="w-6 h-6 text-destructive/50 shrink-0 mt-1" />
+                  <span className="text-lg text-muted-foreground font-light">Outdated design signals low trust before visitors even read a word</span>
+                </li>
+                <li className="flex items-start gap-4">
+                  <XCircle className="w-6 h-6 text-destructive/50 shrink-0 mt-1" />
+                  <span className="text-lg text-muted-foreground font-light">Slow load times drive 40% of visitors away in under 3 seconds</span>
+                </li>
+                <li className="flex items-start gap-4">
+                  <XCircle className="w-6 h-6 text-destructive/50 shrink-0 mt-1" />
+                  <span className="text-lg text-muted-foreground font-light">Generic templates can't communicate what makes your business different</span>
+                </li>
+              </ul>
+            </motion.div>
+            <motion.div variants={fadeInUp} className="bg-secondary/20 p-8 md:p-12 rounded-3xl border border-primary/10">
+              <h2 className="font-serif text-3xl md:text-4xl mb-8">Modern, purposeful digital products that convert.</h2>
+              <ul className="space-y-6">
+                <li className="flex items-start gap-4">
+                  <CheckCircle2 className="w-6 h-6 text-primary shrink-0 mt-1" />
+                  <span className="text-lg text-muted-foreground font-light">Fast, elegant interfaces built for real user behavior</span>
+                </li>
+                <li className="flex items-start gap-4">
+                  <CheckCircle2 className="w-6 h-6 text-primary shrink-0 mt-1" />
+                  <span className="text-lg text-muted-foreground font-light">Custom-built, not cookie-cutter — every decision serves your goals</span>
+                </li>
+                <li className="flex items-start gap-4">
+                  <CheckCircle2 className="w-6 h-6 text-primary shrink-0 mt-1" />
+                  <span className="text-lg text-muted-foreground font-light">Systems that grow with your business, not against it</span>
+                </li>
+              </ul>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* How It Works */}
+      <section className="py-24 md:py-32 bg-secondary/10">
+        <div className="container mx-auto px-4 md:px-8">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={fadeInUp}
+            className="mb-16 text-center"
+          >
+            <h2 className="font-serif text-4xl md:text-5xl mb-4">How it works</h2>
+            <p className="text-xl text-muted-foreground font-light">A simple, transparent process.</p>
+          </motion.div>
+
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={staggerContainer}
+            className="relative grid md:grid-cols-3 gap-12 md:gap-8"
+          >
+            <div className="hidden md:block absolute top-12 left-[15%] right-[15%] border-t border-dashed border-primary/20 z-0" />
+            
+            {[
+              { num: "01", title: "Share your vision", desc: "You tell me about your project, goals, and timeline. No commitment required." },
+              { num: "02", title: "I design and build it", desc: "I handle everything: architecture, design, and development. You get clear progress updates throughout." },
+              { num: "03", title: "You launch with confidence", desc: "You receive a production-ready system with handover docs and post-launch support." }
+            ].map((step, i) => (
+              <motion.div key={i} variants={fadeInUp} className="relative z-10 flex flex-col items-center text-center">
+                <div className="w-24 h-24 rounded-full bg-background border border-primary/10 flex items-center justify-center mb-6 shadow-sm">
+                  <span className="font-serif text-4xl text-primary/30">{step.num}</span>
+                </div>
+                <h3 className="font-serif text-2xl mb-4">{step.title}</h3>
+                <p className="text-muted-foreground font-light leading-relaxed">{step.desc}</p>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
 
       {/* About */}
       <section id="about" className="py-24 md:py-32">
@@ -325,6 +413,71 @@ export default function Home() {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="py-24 md:py-32">
+        <div className="container mx-auto px-4 md:px-8">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={fadeInUp}
+            className="mb-16 text-center"
+          >
+            <h2 className="font-serif text-4xl md:text-5xl mb-4">Don't just take my word for it.</h2>
+          </motion.div>
+
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={staggerContainer}
+            className="grid md:grid-cols-2 gap-8"
+          >
+            {[
+              {
+                quote: "Donna delivered our MVP in record time without cutting corners. The codebase is clean, the product works, and our investors were impressed. I'd hire her again without hesitation.",
+                name: "Erik Lindström",
+                company: "Co-founder at Sthlm Marketplace",
+                initials: "EL"
+              },
+              {
+                quote: "We came with a vague idea and got back a fully working product. The communication was clear throughout, and the final result exceeded what we had imagined.",
+                name: "Sara Johansson",
+                company: "CEO at Nordic Legal Group",
+                initials: "SJ"
+              }
+            ].map((testimonial, i) => (
+              <motion.div key={i} variants={fadeInUp} className="bg-secondary/10 border border-primary/5 rounded-3xl p-8 md:p-10 relative">
+                <div className="font-serif text-7xl text-primary/20 absolute top-6 left-6 leading-none">"</div>
+                <div className="relative z-10">
+                  <p className="text-xl md:text-2xl font-light italic leading-relaxed mb-8 pt-4 text-foreground/90">
+                    {testimonial.quote}
+                  </p>
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-full bg-primary/10 text-primary flex items-center justify-center font-serif text-lg">
+                      {testimonial.initials}
+                    </div>
+                    <div>
+                      <div className="font-medium">{testimonial.name}</div>
+                      <div className="text-sm text-muted-foreground font-light">{testimonial.company}</div>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={fadeInUp}
+            className="mt-8 text-center text-sm text-muted-foreground/60 italic font-light"
+          >
+            Names and companies are illustrative examples.
+          </motion.div>
         </div>
       </section>
 
