@@ -266,7 +266,7 @@ export default function Home() {
               <h2 className="font-serif text-4xl md:text-5xl mb-8">Crafting software with intentionality.</h2>
               <div className="space-y-6 text-lg text-muted-foreground font-light leading-relaxed">
                 <p>
-                  I'm Donna — a full-stack developer running a one-person studio from Sweden. I specialize in React, Next.js, Django, and the systems that tie them together.
+                  I'm Frirsta — a full-stack developer running a one-person studio from Sweden. I specialize in React, Next.js, Django, and the systems that tie them together.
                 </p>
                 <p>
                   When you hire an agency, you pay for their overhead. When you work with me, every hour goes directly into your product. You get direct access to the person writing your code.
@@ -463,7 +463,7 @@ export default function Home() {
           >
             {[
               {
-                quote: "Donna delivered our MVP in record time without cutting corners. The codebase is clean, the product works, and our investors were impressed. I'd hire her again without hesitation.",
+                quote: "Frirsta delivered our MVP in record time without cutting corners. The codebase is clean, the product works, and our investors were impressed. I'd hire her again without hesitation.",
                 name: "Erik Lindström",
                 company: "Co-founder at Sthlm Marketplace",
                 initials: "EL"
@@ -520,7 +520,7 @@ export default function Home() {
           >
             <h2 className="font-serif text-4xl md:text-6xl mb-6">Let's build something modern together.</h2>
             <p className="text-xl text-muted-foreground font-light">
-              Tell me about your project and I'll get back to you within 24 hours. Or reach me directly at <a href="mailto:donna@devdonna.se" className="text-primary hover:underline underline-offset-4">donna@devdonna.se</a>
+              Tell me about your project and I'll get back to you within 24 hours. Or reach me directly at <a href="mailto:frirsta@devdonna.se" className="text-primary hover:underline underline-offset-4">frirsta@devdonna.se</a>
             </p>
           </motion.div>
 
@@ -602,8 +602,8 @@ export default function Home() {
           <div className="text-sm text-muted-foreground font-light">
             © {new Date().getFullYear()} DevDonna — Modern full-stack development from Sweden
           </div>
-          <a href="mailto:donna@devdonna.se" className="text-sm font-medium hover:text-primary transition-colors">
-            donna@devdonna.se
+          <a href="mailto:frirsta@devdonna.se" className="text-sm font-medium hover:text-primary transition-colors">
+            frirsta@devdonna.se
           </a>
         </div>
       </footer>
