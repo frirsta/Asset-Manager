@@ -1,0 +1,128 @@
+You are an expert senior UI/UX designer, frontend engineer, and conversion-focused copywriter.
+
+Your task is to UPGRADE my existing DevDonna website to a PREMIUM, high-end, client-winning landing page.
+
+Do NOT rebuild from scratch unless necessary. Improve and refine the current version.
+
+────────────────────────────
+🎯 MAIN GOAL
+────────────────────────────
+
+Transform the website into a high-converting premium studio landing page that:
+- Feels like a high-end Scandinavian tech studio (Stripe / Linear level inspiration)
+- Instantly builds trust within 5 seconds
+- Makes visitors want to contact DevDonna
+- Clearly communicates value and professionalism
+- Looks significantly more premium, modern, and refined than a basic freelancer site
+
+PRIMARY OBJECTIVE: Get clients, not just look good.
+
+────────────────────────────
+🧠 ABOUT DEVDONNA (IMPORTANT CONTEXT)
+────────────────────────────
+
+DevDonna is a solo Swedish full-stack development studio.
+
+It is NOT an agency.
+
+It is a boutique one-person studio focused on quality and direct collaboration.
+
+Services:
+- Frontend development (React, Next.js, UI/UX)
+- Backend development (Django, Django REST Framework)
+- Full-stack web applications
+- API systems
+- MVP development for startups
+- Website redesigns for businesses
+
+Positioning:
+Premium solo developer studio. High-end, modern, direct communication, no middle layers.
+
+────────────────────────────
+💰 CONVERSION GOAL
+────────────────────────────
+
+This website must be optimized for:
+- Client inquiries
+- Trust building
+- Clear positioning
+- Strong CTA conversions
+
+Every section should push toward contact.
+
+────────────────────────────
+🎨 DESIGN UPGRADE DIRECTION
+────────────────────────────
+
+Make the design feel:
+- More premium
+- More minimal
+- More intentional
+- More “boutique tech studio”
+
+Visual improvements:
+- Better spacing (more whitespace)
+- Stronger typography hierarchy
+- Softer, more refined color palette
+- Subtle gradients / blurred background shapes
+- Better section separation
+- More elegant card design
+- Improved button design (hover states, depth, clarity)
+- More modern layout rhythm
+
+Style reference:
+Stripe, Linear, Vercel-level landing pages
+Scandinavian minimal luxury aesthetic
+
+────────────────────────────
+🧱 CONTENT IMPROVEMENTS REQUIRED
+────────────────────────────
+
+Upgrade ALL copy to be:
+- More outcome-focused (business results, not technical jargon)
+- More confident and premium sounding
+- Shorter and clearer sentences
+- More persuasive without being aggressive
+
+Improve:
+
+1. HERO SECTION
+- Make headline sharper and more outcome-driven
+- Stronger value proposition in 1 sentence
+- Add clearer CTA hierarchy
+
+2. TRUST SECTION
+- Make positioning clearer and more premium
+
+3. SERVICES
+- Rewrite all service descriptions to focus on results and impact
+
+4. PROJECTS
+- Make them feel like real client case studies with outcomes
+- More credibility and specificity
+
+5. CONTACT SECTION
+- Make CTA more compelling and human
+- Increase urgency subtly (“Let’s build something modern together” style)
+
+────────────────────────────
+⚙️ TECH REQUIREMENTS
+────────────────────────────
+
+- Keep as a clean frontend project (HTML/CSS/JS or framework already used in project)
+- Ensure full responsiveness (mobile-first)
+- No visual bugs or layout issues
+- Improve performance and simplicity
+- Maintain deploy readiness
+
+────────────────────────────
+🔥 EXPECTED RESULT
+────────────────────────────
+
+After this upgrade, the site should feel:
+- Like a premium $3k–$10k freelance studio website
+- Trustworthy enough for clients to contact immediately
+- Visually refined and modern
+- Clear, simple, and high-converting
+
+Now perform a full premium upgrade of the DevDonna website.

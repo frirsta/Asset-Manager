@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from "react";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -6,7 +7,7 @@ import { SiReact, SiNextdotjs, SiDjango, SiPostgresql, SiJavascript } from "reac
 import { Code2, Server, Globe, Terminal, Rocket, PenTool, CheckCircle2, XCircle } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -35,6 +36,16 @@ const staggerContainer = {
 
 export default function Home() {
   const { toast } = useToast();
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 10);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   const form = useForm<z.infer<typeof contactSchema>>({
     resolver: zodResolver(contactSchema),
     defaultValues: {
@@ -62,15 +73,14 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-background text-foreground selection:bg-primary/20">
       {/* Nav */}
-      <nav className="sticky top-0 z-50 w-full bg-background/80 backdrop-blur-md border-b border-border/40">
+      <nav className={`sticky top-0 z-50 w-full bg-background/80 backdrop-blur-md border-b border-border/40 transition-shadow ${scrolled ? "shadow-sm" : ""}`}>
         <div className="container mx-auto px-4 md:px-8 h-20 flex items-center justify-between">
-          <div className="font-serif text-2xl font-medium tracking-tight text-primary">
+          <div className="font-serif text-[1.6rem] font-semibold tracking-tight text-primary">
             DevDonna
           </div>
           <Button 
             onClick={() => scrollTo("contact")}
-            variant="outline"
-            className="rounded-full px-6 font-medium hover:bg-primary hover:text-primary-foreground transition-colors border-primary/20 text-primary"
+            className="rounded-full px-6 font-medium bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
             data-testid="nav-cta-contact"
           >
             Let's talk
@@ -81,6 +91,11 @@ export default function Home() {
       {/* Hero */}
       <section className="relative pt-32 pb-24 md:pt-48 md:pb-32 overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-primary/10 via-background to-background pointer-events-none" />
+        
+        {/* Background Orbs */}
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/5 blur-3xl rounded-full pointer-events-none -z-10 translate-x-1/3 -translate-y-1/3" />
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-secondary blur-3xl rounded-full pointer-events-none -z-10 -translate-x-1/3 translate-y-1/3" />
+        
         <div className="container mx-auto px-4 md:px-8 relative z-10">
           <motion.div 
             initial="hidden"
@@ -92,32 +107,37 @@ export default function Home() {
               variants={fadeInUp}
               className="font-serif text-5xl md:text-7xl lg:text-8xl leading-[1.1] tracking-tight mb-8"
             >
-              I build the digital products your business <span className="text-primary italic">actually needs.</span>
+              Your business deserves a website that actually <span className="text-primary italic">wins clients.</span>
             </motion.h1>
             <motion.p 
               variants={fadeInUp}
               className="text-lg md:text-2xl text-muted-foreground max-w-2xl mb-12 font-light leading-relaxed"
             >
-              Direct access to a senior developer in Sweden. No agency overhead, no account managers. Just clear communication and reliable delivery.
+              I'm a solo full-stack developer based in Sweden. No agency markup. No junior handoffs. Just senior-level work, delivered directly to you.
             </motion.p>
-            <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4">
+            <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4 items-center">
               <Button 
                 size="lg" 
                 onClick={() => scrollTo("contact")}
-                className="rounded-full text-base px-8 h-14"
+                className="rounded-full text-base px-8 h-14 w-full sm:w-auto"
                 data-testid="hero-cta-primary"
               >
-                Let's work together
+                Start a project
               </Button>
               <Button 
                 size="lg" 
                 variant="outline" 
-                onClick={() => scrollTo("services")}
-                className="rounded-full text-base px-8 h-14"
+                onClick={() => scrollTo("how-it-works")}
+                className="rounded-full text-base px-8 h-14 w-full sm:w-auto"
                 data-testid="hero-cta-secondary"
               >
-                View services
+                See how it works
               </Button>
+            </motion.div>
+            <motion.div variants={fadeInUp} className="mt-6 text-sm text-muted-foreground/70 flex items-center justify-center sm:justify-start gap-2">
+              <span>Available for new projects</span>
+              <span>·</span>
+              <span>Response within 24h</span>
             </motion.div>
           </motion.div>
         </div>
@@ -126,17 +146,19 @@ export default function Home() {
       {/* Trust Strip */}
       <div className="border-y border-border/50 bg-muted/30 py-6 overflow-hidden">
         <div className="container mx-auto px-4 md:px-8">
-          <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 text-sm md:text-base font-medium text-muted-foreground uppercase tracking-wider">
+          <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 text-sm md:text-base font-medium text-muted-foreground">
+            <span className="text-primary font-semibold">Available for projects</span>
+            <span className="hidden sm:inline text-primary/30">•</span>
             <span>Solo Dev</span>
-            <span className="hidden sm:inline text-primary/40">•</span>
+            <span className="hidden sm:inline text-primary/30">•</span>
             <span>Based in Sweden</span>
-            <span className="hidden sm:inline text-primary/40">•</span>
+            <span className="hidden sm:inline text-primary/30">•</span>
             <span>React</span>
-            <span className="hidden sm:inline text-primary/40">•</span>
+            <span className="hidden sm:inline text-primary/30">•</span>
             <span>Next.js</span>
-            <span className="hidden sm:inline text-primary/40">•</span>
-            <span>Django</span>
-            <span className="hidden sm:inline text-primary/40">•</span>
+            <span className="hidden sm:inline text-primary/30">•</span>
+            <span>Django REST Framework</span>
+            <span className="hidden sm:inline text-primary/30">•</span>
             <span>5+ Years</span>
           </div>
         </div>
@@ -152,37 +174,37 @@ export default function Home() {
             variants={staggerContainer}
             className="grid md:grid-cols-2 gap-8 lg:gap-16"
           >
-            <motion.div variants={fadeInUp} className="bg-secondary/10 p-8 md:p-12 rounded-3xl">
-              <h2 className="font-serif text-3xl md:text-4xl mb-8">Your website is losing you business.</h2>
+            <motion.div variants={fadeInUp} className="bg-secondary/10 p-8 md:p-12 rounded-3xl border-l-4 border-destructive/20">
+              <h2 className="font-serif text-3xl md:text-4xl mb-8">Is your website costing you clients?</h2>
               <ul className="space-y-6">
                 <li className="flex items-start gap-4">
                   <XCircle className="w-6 h-6 text-destructive/50 shrink-0 mt-1" />
-                  <span className="text-lg text-muted-foreground font-light">Outdated design signals low trust before visitors even read a word</span>
+                  <span className="text-lg text-muted-foreground">Outdated design signals low trust before visitors even read a word</span>
                 </li>
                 <li className="flex items-start gap-4">
                   <XCircle className="w-6 h-6 text-destructive/50 shrink-0 mt-1" />
-                  <span className="text-lg text-muted-foreground font-light">Slow load times drive 40% of visitors away in under 3 seconds</span>
+                  <span className="text-lg text-muted-foreground">Slow load times drive 40% of visitors away in under 3 seconds</span>
                 </li>
                 <li className="flex items-start gap-4">
                   <XCircle className="w-6 h-6 text-destructive/50 shrink-0 mt-1" />
-                  <span className="text-lg text-muted-foreground font-light">Generic templates can't communicate what makes your business different</span>
+                  <span className="text-lg text-muted-foreground">Generic templates can't communicate what makes your business different</span>
                 </li>
               </ul>
             </motion.div>
-            <motion.div variants={fadeInUp} className="bg-secondary/20 p-8 md:p-12 rounded-3xl border border-primary/10">
-              <h2 className="font-serif text-3xl md:text-4xl mb-8">Modern, purposeful digital products that convert.</h2>
+            <motion.div variants={fadeInUp} className="bg-secondary/20 p-8 md:p-12 rounded-3xl border border-primary/10 border-l-4 border-l-primary/40">
+              <h2 className="font-serif text-3xl md:text-4xl mb-8">Modern. Fast. Built to convert.</h2>
               <ul className="space-y-6">
                 <li className="flex items-start gap-4">
                   <CheckCircle2 className="w-6 h-6 text-primary shrink-0 mt-1" />
-                  <span className="text-lg text-muted-foreground font-light">Fast, elegant interfaces built for real user behavior</span>
+                  <span className="text-lg text-muted-foreground">Fast, elegant interfaces built for real user behavior</span>
                 </li>
                 <li className="flex items-start gap-4">
                   <CheckCircle2 className="w-6 h-6 text-primary shrink-0 mt-1" />
-                  <span className="text-lg text-muted-foreground font-light">Custom-built, not cookie-cutter — every decision serves your goals</span>
+                  <span className="text-lg text-muted-foreground">Custom-built, not cookie-cutter — every decision serves your goals</span>
                 </li>
                 <li className="flex items-start gap-4">
                   <CheckCircle2 className="w-6 h-6 text-primary shrink-0 mt-1" />
-                  <span className="text-lg text-muted-foreground font-light">Systems that grow with your business, not against it</span>
+                  <span className="text-lg text-muted-foreground">Systems that grow with your business, not against it</span>
                 </li>
               </ul>
             </motion.div>
@@ -191,7 +213,7 @@ export default function Home() {
       </section>
 
       {/* How It Works */}
-      <section className="py-24 md:py-32 bg-secondary/10">
+      <section id="how-it-works" className="py-24 md:py-32 bg-secondary/10">
         <div className="container mx-auto px-4 md:px-8">
           <motion.div
             initial="hidden"
@@ -209,19 +231,15 @@ export default function Home() {
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={staggerContainer}
-            className="relative grid md:grid-cols-3 gap-12 md:gap-8"
+            className="relative grid md:grid-cols-3 gap-12 md:gap-8 pt-12"
           >
-            <div className="hidden md:block absolute top-12 left-[15%] right-[15%] border-t border-dashed border-primary/20 z-0" />
-            
             {[
-              { num: "01", title: "Share your vision", desc: "You tell me about your project, goals, and timeline. No commitment required." },
-              { num: "02", title: "I design and build it", desc: "I handle everything: architecture, design, and development. You get clear progress updates throughout." },
-              { num: "03", title: "You launch with confidence", desc: "You receive a production-ready system with handover docs and post-launch support." }
+              { num: "01", title: "Tell me about your project", desc: "A quick call or message is all it takes. No lengthy briefs, no RFPs. Just a conversation." },
+              { num: "02", title: "I build it, you stay informed", desc: "I handle architecture, design, and code. You get weekly updates and can reach me directly at any point." },
+              { num: "03", title: "Launch ready, supported", desc: "Clean code, full handover, and post-launch support. You own everything, no lock-in." }
             ].map((step, i) => (
-              <motion.div key={i} variants={fadeInUp} className="relative z-10 flex flex-col items-center text-center">
-                <div className="w-24 h-24 rounded-full bg-background border border-primary/10 flex items-center justify-center mb-6 shadow-sm">
-                  <span className="font-serif text-4xl text-primary/30">{step.num}</span>
-                </div>
+              <motion.div key={i} variants={fadeInUp} className="relative z-10 flex flex-col items-center text-center px-4">
+                <div className="absolute -top-16 font-serif text-8xl font-bold text-primary/8 pointer-events-none -z-10">{step.num}</div>
                 <h3 className="font-serif text-2xl mb-4">{step.title}</h3>
                 <p className="text-muted-foreground font-light leading-relaxed">{step.desc}</p>
               </motion.div>
@@ -241,16 +259,20 @@ export default function Home() {
             className="grid md:grid-cols-2 gap-16 items-center"
           >
             <div>
+              <span className="inline-flex items-center gap-2 text-sm font-medium text-primary bg-primary/8 px-3 py-1 rounded-full mb-6">
+                <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                Available for new projects
+              </span>
               <h2 className="font-serif text-4xl md:text-5xl mb-8">Crafting software with intentionality.</h2>
               <div className="space-y-6 text-lg text-muted-foreground font-light leading-relaxed">
                 <p>
-                  Hi, I'm Donna. I run a boutique one-person development studio focused on building exceptional web applications. 
+                  I'm Donna — a full-stack developer running a one-person studio from Sweden. I specialize in React, Next.js, Django, and the systems that tie them together.
                 </p>
                 <p>
-                  When you work with an agency, you're paying for their offices, their managers, and their bench time. When you work with me, you're investing directly into the product. You get direct collaboration, transparent timelines, and code that is built to last.
+                  When you hire an agency, you pay for their overhead. When you work with me, every hour goes directly into your product. You get direct access to the person writing your code.
                 </p>
                 <p>
-                  I believe in Scandinavian design principles applied to software: it should be elegant, simple to use, and devoid of unnecessary complexity.
+                  I care about craft. Software should be fast, intuitive, and built to outlast the trend cycle.
                 </p>
               </div>
             </div>
@@ -278,8 +300,8 @@ export default function Home() {
             variants={fadeInUp}
             className="mb-16"
           >
-            <h2 className="font-serif text-4xl md:text-5xl mb-4">Capabilities</h2>
-            <p className="text-xl text-muted-foreground font-light">Outcome-focused solutions for modern businesses.</p>
+            <h2 className="font-serif text-4xl md:text-5xl mb-4">What I build</h2>
+            <p className="text-xl text-muted-foreground font-light">Every engagement starts with understanding your business, not your tech stack.</p>
           </motion.div>
 
           <motion.div 
@@ -290,14 +312,14 @@ export default function Home() {
             className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"
           >
             {[
-              { title: "Frontend Development", desc: "Fast, accessible, and beautiful user interfaces that customers actually enjoy using.", icon: Globe },
-              { title: "Backend Development", desc: "Robust data architectures and secure logic that keep your business running smoothly.", icon: Server },
-              { title: "Full-Stack Web Apps", desc: "End-to-end product development, taking your idea from a napkin sketch to a launched product.", icon: Code2 },
-              { title: "API Systems", desc: "Connecting your tools and unlocking new revenue streams with well-designed integrations.", icon: Terminal },
-              { title: "MVP Development", desc: "Lean, focused builds to test your market assumptions without wasting capital.", icon: Rocket },
-              { title: "Website Modernization", desc: "Rescuing legacy systems and bringing them into the modern web ecosystem.", icon: PenTool },
+              { title: "Frontend Development", desc: "Interfaces that load fast, look sharp, and convert visitors into customers.", icon: Globe },
+              { title: "Backend Development", desc: "Secure, scalable server logic that keeps your business running without surprises.", icon: Server },
+              { title: "Full-Stack Web Apps", desc: "From idea to shipped product — I handle the full stack so you don't have to hire a team.", icon: Code2 },
+              { title: "API Systems", desc: "Custom integrations and APIs that connect your tools and unlock new capabilities.", icon: Terminal },
+              { title: "MVP Development", desc: "Get to market fast. A focused build that validates your idea without burning runway.", icon: Rocket },
+              { title: "Website Modernization", desc: "Turn a legacy embarrassment into a modern asset that actually represents your brand.", icon: PenTool },
             ].map((service, i) => (
-              <motion.div key={i} variants={fadeInUp}>
+              <motion.div key={i} variants={fadeInUp} whileHover={{ y: -4 }}>
                 <Card className="h-full bg-background/50 backdrop-blur border-border/50 hover:border-primary/30 transition-colors group">
                   <CardHeader>
                     <service.icon className="w-8 h-8 text-primary mb-4 opacity-80 group-hover:opacity-100 transition-opacity" />
@@ -322,25 +344,25 @@ export default function Home() {
             viewport={{ once: true, margin: "-100px" }}
             variants={fadeInUp}
           >
-            <h2 className="font-serif text-3xl mb-12">The Tools of the Trade</h2>
-            <div className="flex flex-wrap justify-center gap-8 md:gap-16 opacity-60">
-              <div className="flex flex-col items-center gap-3 hover:text-primary transition-colors cursor-default">
+            <h2 className="font-serif text-3xl mb-12">Built with modern tools</h2>
+            <div className="flex flex-wrap justify-center gap-8 md:gap-16 text-muted-foreground">
+              <div className="flex flex-col items-center gap-3 opacity-50 hover:opacity-100 hover:text-foreground transition-all cursor-default">
                 <SiReact className="w-12 h-12" />
                 <span className="text-sm font-medium tracking-wide uppercase">React</span>
               </div>
-              <div className="flex flex-col items-center gap-3 hover:text-primary transition-colors cursor-default">
+              <div className="flex flex-col items-center gap-3 opacity-50 hover:opacity-100 hover:text-foreground transition-all cursor-default">
                 <SiNextdotjs className="w-12 h-12" />
                 <span className="text-sm font-medium tracking-wide uppercase">Next.js</span>
               </div>
-              <div className="flex flex-col items-center gap-3 hover:text-primary transition-colors cursor-default">
+              <div className="flex flex-col items-center gap-3 opacity-50 hover:opacity-100 hover:text-foreground transition-all cursor-default">
                 <SiDjango className="w-12 h-12" />
                 <span className="text-sm font-medium tracking-wide uppercase">Django</span>
               </div>
-              <div className="flex flex-col items-center gap-3 hover:text-primary transition-colors cursor-default">
+              <div className="flex flex-col items-center gap-3 opacity-50 hover:opacity-100 hover:text-foreground transition-all cursor-default">
                 <SiPostgresql className="w-12 h-12" />
                 <span className="text-sm font-medium tracking-wide uppercase">PostgreSQL</span>
               </div>
-              <div className="flex flex-col items-center gap-3 hover:text-primary transition-colors cursor-default">
+              <div className="flex flex-col items-center gap-3 opacity-50 hover:opacity-100 hover:text-foreground transition-all cursor-default">
                 <SiJavascript className="w-12 h-12" />
                 <span className="text-sm font-medium tracking-wide uppercase">JavaScript</span>
               </div>
@@ -360,7 +382,7 @@ export default function Home() {
             className="mb-16"
           >
             <h2 className="font-serif text-4xl md:text-5xl mb-4">Selected Work</h2>
-            <p className="text-xl text-muted-foreground font-light">Real products solving real problems.</p>
+            <p className="text-xl text-muted-foreground font-light">Each project started as a conversation. Here's what we built.</p>
           </motion.div>
 
           <div className="space-y-12">
@@ -390,7 +412,7 @@ export default function Home() {
                 whileInView="visible"
                 viewport={{ once: true, margin: "-100px" }}
                 variants={fadeInUp}
-                className="group relative bg-background border border-border/50 p-8 md:p-12 rounded-2xl hover:border-primary/30 transition-colors"
+                className="group relative bg-background border border-border/50 border-l-4 border-l-primary/20 p-8 md:p-12 rounded-2xl hover:border-primary/30 group-hover:border-l-primary/60 transition-colors"
               >
                 <div className="grid md:grid-cols-[1fr_2fr] gap-8">
                   <div>
@@ -401,12 +423,15 @@ export default function Home() {
                     <p className="text-lg text-muted-foreground font-light leading-relaxed mb-8">
                       {project.outcome}
                     </p>
-                    <div className="flex flex-wrap gap-2">
-                      {project.tech.map(t => (
-                        <span key={t} className="px-3 py-1 bg-secondary text-secondary-foreground text-xs font-medium rounded-full">
-                          {t}
-                        </span>
-                      ))}
+                    <div className="flex items-end justify-between mt-auto">
+                      <div className="flex flex-wrap gap-2">
+                        {project.tech.map(t => (
+                          <span key={t} className="px-3 py-1 bg-secondary text-secondary-foreground text-xs font-medium rounded-full">
+                            {t}
+                          </span>
+                        ))}
+                      </div>
+                      <span className="text-sm font-medium text-primary/60 group-hover:text-primary transition-colors">Read more →</span>
                     </div>
                   </div>
                 </div>
@@ -426,7 +451,7 @@ export default function Home() {
             variants={fadeInUp}
             className="mb-16 text-center"
           >
-            <h2 className="font-serif text-4xl md:text-5xl mb-4">Don't just take my word for it.</h2>
+            <h2 className="font-serif text-4xl md:text-5xl mb-4">What clients say</h2>
           </motion.div>
 
           <motion.div 
@@ -452,8 +477,9 @@ export default function Home() {
             ].map((testimonial, i) => (
               <motion.div key={i} variants={fadeInUp} className="bg-secondary/10 border border-primary/5 rounded-3xl p-8 md:p-10 relative">
                 <div className="font-serif text-7xl text-primary/20 absolute top-6 left-6 leading-none">"</div>
-                <div className="relative z-10">
-                  <p className="text-xl md:text-2xl font-light italic leading-relaxed mb-8 pt-4 text-foreground/90">
+                <div className="relative z-10 pt-4">
+                  <div className="text-primary/50 text-sm mb-4">★★★★★</div>
+                  <p className="text-lg font-light italic leading-relaxed mb-8 text-foreground/90">
                     {testimonial.quote}
                   </p>
                   <div className="flex items-center gap-4">
@@ -482,8 +508,9 @@ export default function Home() {
       </section>
 
       {/* Contact */}
-      <section id="contact" className="py-24 md:py-32">
-        <div className="container mx-auto px-4 md:px-8 max-w-3xl">
+      <section id="contact" className="py-24 md:py-32 relative overflow-hidden">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 blur-3xl rounded-full pointer-events-none -z-10" />
+        <div className="container mx-auto px-4 md:px-8 max-w-3xl relative z-10">
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -491,9 +518,9 @@ export default function Home() {
             variants={fadeInUp}
             className="text-center mb-16"
           >
-            <h2 className="font-serif text-4xl md:text-6xl mb-6">Ready to build something that works?</h2>
+            <h2 className="font-serif text-4xl md:text-6xl mb-6">Let's build something modern together.</h2>
             <p className="text-xl text-muted-foreground font-light">
-              Reach out to discuss your project. Or email me directly at <a href="mailto:donna@devdonna.se" className="text-primary hover:underline underline-offset-4">donna@devdonna.se</a>
+              Tell me about your project and I'll get back to you within 24 hours. Or reach me directly at <a href="mailto:donna@devdonna.se" className="text-primary hover:underline underline-offset-4">donna@devdonna.se</a>
             </p>
           </motion.div>
 
@@ -557,7 +584,7 @@ export default function Home() {
                   className="w-full h-14 text-lg rounded-full"
                   data-testid="button-submit-contact"
                 >
-                  Send Message
+                  Send message →
                 </Button>
               </form>
             </Form>
@@ -566,13 +593,14 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-border/50 py-12 bg-background">
-        <div className="container mx-auto px-4 md:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
+      <footer className="border-t border-border/50 py-12 bg-background relative overflow-hidden">
+        <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-secondary/30 pointer-events-none" />
+        <div className="container mx-auto px-4 md:px-8 flex flex-col md:flex-row items-center justify-between gap-4 relative z-10">
           <div className="font-serif text-xl tracking-tight text-primary">
             DevDonna
           </div>
           <div className="text-sm text-muted-foreground font-light">
-            © {new Date().getFullYear()} DevDonna. Premium IT Consulting.
+            © {new Date().getFullYear()} DevDonna — Modern full-stack development from Sweden
           </div>
           <a href="mailto:donna@devdonna.se" className="text-sm font-medium hover:text-primary transition-colors">
             donna@devdonna.se
