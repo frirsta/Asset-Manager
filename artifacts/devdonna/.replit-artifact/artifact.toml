@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "DevDonna"
+version = "1.0.0"
+id = "artifacts/devdonna"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 24999
+
+[services.development]
+run = "pnpm --filter @workspace/devdonna run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/devdonna", "run", "build" ]
+publicDir = "artifacts/devdonna/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "24999"
+BASE_PATH = "/"

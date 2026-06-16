@@ -1,0 +1,107 @@
+You are an expert frontend developer, UX/UI designer, and conversion copywriter.
+
+Build a complete, modern, one-page website for my business “DevDonna”.
+
+────────────────────────────
+🧠 ABOUT DEVDONNA
+────────────────────────────
+
+DevDonna is a Swedish solo IT consulting studio run by a full-stack developer.
+
+It is NOT an agency.
+
+It is a premium one-person studio that builds modern digital products.
+
+Services:
+- Frontend development (React, Next.js, UI/UX)
+- Backend development (Django, Django REST Framework)
+- Full-stack web applications
+- API systems
+- MVP development for startups
+- Website modernization for businesses
+
+Target clients:
+- Startups needing MVPs
+- Small businesses needing modern websites
+- Companies needing freelance full-stack developer support
+
+────────────────────────────
+🎯 GOAL OF THE WEBSITE
+────────────────────────────
+
+The website must:
+- Attract clients
+- Build trust in under 5 seconds
+- Clearly explain what DevDonna does
+- Convert visitors into leads
+- Encourage contact
+
+────────────────────────────
+🎨 DESIGN STYLE
+────────────────────────────
+
+- Modern SaaS / premium studio feel
+- Scandinavian minimalism
+- Elegant, slightly feminine but professional aesthetic
+- Soft neutral colors with subtle accent (rose, beige, lavender, muted gold)
+- Clean typography, lots of whitespace
+- Smooth hover effects, rounded corners
+- High-end boutique studio look
+
+────────────────────────────
+🧱 REQUIRED SECTIONS
+────────────────────────────
+
+1. HERO SECTION
+- Strong headline (clear value proposition)
+- Subheadline (trust + clarity)
+- CTA buttons (Contact / View Services)
+
+2. TRUST STRIP
+- One-line positioning (solo dev, Sweden, tech stack)
+
+3. ABOUT SECTION
+- Personal, trustworthy story
+- Emphasize direct collaboration (no agency overhead)
+
+4. SERVICES SECTION
+- Outcome-focused descriptions (not technical jargon)
+
+5. TECH STACK SECTION
+- React, Next.js, Django, DRF, PostgreSQL, JavaScript
+
+6. PROJECTS SECTION
+- 2–3 realistic example projects with business value
+
+7. CONTACT SECTION
+- Simple form (name, email, message) OR mailto link
+- Strong closing CTA
+
+────────────────────────────
+💻 TECH REQUIREMENTS
+────────────────────────────
+
+- Output MUST be a single file: index.html
+- Only HTML + CSS + minimal vanilla JS if needed
+- No frameworks
+- Fully responsive (mobile-first)
+- Works directly on GitHub Pages
+- Clean, production-ready code
+
+────────────────────────────
+💰 COPY RULES
+────────────────────────────
+
+- Focus on selling, not just describing
+- Simple, confident English
+- No corporate fluff
+- Emphasize outcomes and business value
+- Make it feel premium and trustworthy
+- Strong CTAs throughout
+
+────────────────────────────
+⚡ OUTPUT RULE
+────────────────────────────
+
+Return ONLY the full index.html file.
+No explanations. No extra text.
