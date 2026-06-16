@@ -1,0 +1,1 @@
+- [Outreach app architecture](outreach-app.md) — key decisions: file upload excluded from OpenAPI spec, replit-auth-web needs vite devDep, @import order in CSS

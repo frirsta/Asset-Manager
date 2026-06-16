@@ -1,0 +1,270 @@
+You are a senior full-stack SaaS engineer and UX designer.
+
+Build a complete production-ready web application called "DevDonna Outreach".
+
+## Goal
+
+The application should allow me to:
+
+1. Upload a Google Sheet export (CSV or XLSX).
+2. Store and manage business contacts.
+3. Filter contacts by category.
+4. Write one email template.
+5. Send the email to all businesses within a selected category.
+6. Track email sending status.
+
+## Target User
+
+A solo consultant using the platform for B2B outreach and lead generation.
+
+---
+
+## Core Features
+
+### 1. Import Contacts
+
+Create an upload page where I can upload:
+
+* CSV files
+* XLSX files
+
+Example columns:
+
+* Company Name
+* Contact Name
+* Email
+* Website
+* Industry
+* Category
+* City
+* Country
+* Notes
+* Phone Number
+
+The system should automatically map columns.
+
+Store all imported contacts in a database.
+
+---
+
+### 2. Contacts Dashboard
+
+Create a modern dashboard showing:
+
+* Total contacts
+* Total categories
+* Total emails sent
+* Total pending contacts
+
+Include:
+
+* Search bar
+* Filters
+* Sorting
+
+Display contacts in a table.
+
+Columns:
+
+* Company
+* Contact
+* Email
+* Category
+* Website
+* Status
+
+---
+
+### 3. Category Management
+
+Allow me to:
+
+* Create categories
+* Edit categories
+* Delete categories
+
+Examples:
+
+* E-commerce
+* SaaS
+* Construction
+* Healthcare
+* Real Estate
+
+A contact can belong to one category.
+
+---
+
+### 4. Email Campaign Builder
+
+Create a page where I can:
+
+Select:
+
+* One category
+
+Write:
+
+* Subject line
+* Email body
+
+Use variables such as:
+
+{{company_name}}
+
+{{contact_name}}
+
+{{website}}
+
+{{industry}}
+
+Example:
+
+Hello {{contact_name}},
+
+I noticed that {{company_name}} has a strong presence in the {{industry}} industry.
+
+---
+
+### 5. Email Sending
+
+Integrate with:
+
+* Resend API (preferred)
+* SMTP as alternative
+
+Requirements:
+
+* Send personalized emails to every contact in selected category.
+* Replace variables dynamically.
+* Queue emails safely.
+* Prevent duplicate sends.
+
+---
+
+### 6. Email Tracking
+
+Show:
+
+* Sent
+* Failed
+* Pending
+
+Track:
+
+* Date sent
+* Recipient
+* Campaign
+
+Create a campaign history page.
+
+---
+
+### 7. Contact Details Page
+
+Clicking a contact should open a detailed page displaying:
+
+* Company information
+* Contact information
+* Notes
+* Email history
+
+---
+
+## UI Requirements
+
+Design should feel similar to:
+
+* Notion
+* Linear
+* Stripe Dashboard
+
+Requirements:
+
+* Modern SaaS style
+* Responsive
+* Mobile friendly
+* Clean typography
+* Dark mode
+* Light mode
+
+Use:
+
+* Next.js
+* TypeScript
+* Tailwind CSS
+* shadcn/ui
+
+---
+
+## Database
+
+Use PostgreSQL.
+
+Suggested tables:
+
+Users
+Contacts
+Categories
+Campaigns
+Emails
+
+Include relationships.
+
+---
+
+## Authentication
+
+Implement:
+
+* Sign up
+* Login
+* Forgot password
+
+Use secure authentication.
+
+---
+
+## Security
+
+Validate uploaded files.
+
+Prevent:
+
+* Duplicate contacts
+* Invalid emails
+* Email abuse
+
+Implement rate limiting.
+
+---
+
+## Nice-to-Have Features
+
+Add:
+
+* Open tracking
+* Click tracking
+* Export contacts
+* Export campaign reports
+* Bulk delete contacts
+* Contact tags
+* AI-assisted email generation
+* Scheduled campaigns
+
+---
+
+## Deliverables
+
+Generate:
+
+1. Complete application architecture.
+2. Database schema.
+3. Folder structure.
+4. Frontend implementation.
+5. Backend implementation.
+6. API routes.
+7. Email service integration.
+8. Deployment instructions.
+
+The result should look and feel like a professional SaaS product that could be sold commercially.
